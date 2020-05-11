@@ -61,6 +61,10 @@ install commandbox-cfconfig
 Example of adding a datasource:
 cfconfig datasource save name=mydatasourcename dbdriver=mysql host=db-mysql-digitaloceanlocation-yourname-someuser-somedatabasecluster.ondigitalocean.com port=25099 database=theMySQLdatabasename username=theMySQLusername password=theSuperSecretMySQLPassword
 
+# adding a mailserver (PostmarkApp)
+cfconfig mailserver save smtp=smtp.postmarkapp.com to=CommandBoxServerName username=evenmoresecret7435877453892 password=supersecret34673465
+
+
 # start up server (and making double-sure it's using Java8)
 server start javaVersion=openjdk8
 
