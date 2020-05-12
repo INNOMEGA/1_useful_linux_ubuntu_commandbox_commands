@@ -27,6 +27,7 @@ client_max_body_size 2M;
 
 
 # Set the Java to a version that works better than 11
+UPDATE/CORRECTION 20200511: 11.07 seems to be OK with Lucee 5.3.6-RC
 
 java -version
 
@@ -64,10 +65,17 @@ cfconfig datasource save name=mydatasourcename dbdriver=mysql host=db-mysql-digi
 # adding a mailserver (PostmarkApp)
 cfconfig mailserver save smtp=smtp.postmarkapp.com to=CommandBoxServerName username=evenmoresecret7435877453892 password=supersecret34673465
 
-
-# start up server (and making double-sure it's using Java8)
+# start up server (and making double-sure it's using Java8, if you're into that kind of thing)
 server start javaVersion=openjdk8
 
+
+# commandBox does soooo much more with awesome plugins. install them. Trust Brad.
+install commandbox-update-check
+install commandbox-dotenv
+install commandbox-bullet-train
+install commandbox-hostupdater
+install commandbox-service-manager@ortus   (49USD/yr/server)
+install cfdocs
 
 
 
