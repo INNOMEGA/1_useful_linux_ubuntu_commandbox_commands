@@ -50,6 +50,8 @@ curl -fsSl https://downloads.ortussolutions.com/debs/gpg | sudo apt-key add -
 echo "deb http://downloads.ortussolutions.com/debs/noarch /" | sudo tee -a /etc/apt/sources.list.d/commandbox.list
 sudo apt-get update && sudo apt-get install commandbox
 
+# set Java to 8 as a commandbox default
+config set server.defaults.jvm.javaVersion=openjdk8
 
 # INSTALL CFCONFIG
 go to web root directory (optional)
