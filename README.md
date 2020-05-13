@@ -26,7 +26,7 @@ set client body size to 2M #
 client_max_body_size 2M;
 
 
-# Set the Java to a version that works better than 11
+# Set the Java to version 8 which works better than 11.06
 UPDATE/CORRECTION 20200511: 11.07 seems to be OK with Lucee 5.3.6-RC
 
 java -version
@@ -50,6 +50,7 @@ curl -fsSl https://downloads.ortussolutions.com/debs/gpg | sudo apt-key add -
 echo "deb http://downloads.ortussolutions.com/debs/noarch /" | sudo tee -a /etc/apt/sources.list.d/commandbox.list
 sudo apt-get update && sudo apt-get install commandbox
 
+
 # INSTALL CFCONFIG
 go to web root directory (optional)
 start Commanbox by typing
@@ -58,12 +59,19 @@ box
 then install cfconfig by
 install commandbox-cfconfig
 
+# set errors to verbose
+config set verboseErrors=true
+
+
 # adding a datasource
 Example of adding a datasource:
 cfconfig datasource save name=mydatasourcename dbdriver=mysql host=db-mysql-digitaloceanlocation-yourname-someuser-somedatabasecluster.ondigitalocean.com port=25099 database=theMySQLdatabasename username=theMySQLusername password=theSuperSecretMySQLPassword
 
 # adding a mailserver (PostmarkApp)
 cfconfig mailserver save smtp=smtp.postmarkapp.com to=CommandBoxServerName username=evenmoresecret7435877453892 password=supersecret34673465
+
+# show all cfconfig settings
+config show
 
 # start up server (and making double-sure it's using Java8, if you're into that kind of thing)
 server start javaVersion=openjdk8
@@ -127,6 +135,6 @@ sudo nano /etc/nginx/commandbox.conf
 }
 
 
-# INSTALL COMMANDBOX AND LUCEE ON UBUNTU 18.04 LTS IMAGE:
+# INSTALL COMMANDBOX AND LUCEE ON UBUNTU 18.04 LTS IMAGE with NGINX shortcut:
 
 https://github.com/letskillowen/ubuntu-nginx-commandbox/
